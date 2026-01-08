@@ -1519,7 +1519,8 @@ section {
     height: 600px;
 }
 
-.expertise-image img {
+.expertise-image img,
+.expertise-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;
