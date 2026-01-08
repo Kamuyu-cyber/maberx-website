@@ -761,7 +761,104 @@ section {
     resize: vertical;
 }
 
+/* ===== PARTNERS SECTION ===== */
+.partners-section {
+    background: var(--dark-bg-2);
+}
+
+.partners-slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.partners-slider::before,
+.partners-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.partners-slider::before {
+    left: 0;
+    background: linear-gradient(to right, var(--dark-bg-2), transparent);
+}
+
+.partners-slider::after {
+    right: 0;
+    background: linear-gradient(to left, var(--dark-bg-2), transparent);
+}
+
+.partners-track {
+    display: flex;
+    width: max-content;
+    gap: 40px;
+    animation: scroll 30s linear infinite;
+    padding: 20px 0;
+}
+
+.partners-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partner-card {
+    background: var(--dark-bg-3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    min-height: 120px;
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.partner-card:hover {
+    background: var(--dark-bg);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.partner-logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo img {
+    max-width: 200px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.partner-card:hover .partner-logo img {
+    opacity: 1;
+}
+
 /* ===== FOOTER ===== */
+
 .footer {
     background: var(--dark-bg-2);
     padding: 60px 0 30px;
@@ -1479,6 +1576,11 @@ section {
     .pricing-card.featured:hover {
         transform: translateY(-10px);
     }
+
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1496,6 +1598,16 @@ section {
 
     .contact-form {
         padding: 2rem;
+    }
+
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .partner-card {
+        padding: 30px;
+        min-height: 120px;
     }
 }
 
