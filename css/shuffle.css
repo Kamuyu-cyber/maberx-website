@@ -1,0 +1,61 @@
+/* ===== SHUFFLE ANIMATION (SCROLL) ===== */
+.shuffle-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    /* Hide overflow for scrolling effect */
+    background-color: #000;
+}
+
+.slider-track {
+    display: flex;
+    width: 400%;
+    /* 4 images (3 + 1 duplicate) = 400% width */
+    height: 100%;
+    animation: scrollSlides 45s infinite;
+}
+
+.shuffle-img {
+    width: 25%;
+    /* 100% / 4 images */
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Ensure the hover effect works on the container */
+.service-card:hover .shuffle-img {
+    transform: scale(1.05);
+    /* Subtle zoom on hover */
+    transition: transform 0.5s ease;
+}
+
+@keyframes scrollSlides {
+    0% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(0);
+    }
+
+    33.33% {
+        transform: translateX(-25%);
+    }
+
+    63.33% {
+        transform: translateX(-25%);
+    }
+
+    66.66% {
+        transform: translateX(-50%);
+    }
+
+    96.66% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(-75%);
+    }
+}

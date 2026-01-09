@@ -182,24 +182,51 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (isValid) {
-                // Simulate form submission
                 const btn = contactForm.querySelector('button[type="submit"]');
                 const originalText = btn.innerText;
+                const statusDiv = document.getElementById('form-status');
+                const formData = new FormData(contactForm);
 
                 btn.innerText = 'Sending...';
                 btn.disabled = true;
+                statusDiv.innerHTML = '';
 
-                setTimeout(() => {
-                    btn.innerText = 'Message Sent!';
-                    btn.style.backgroundColor = '#28a745';
-
-                    setTimeout(() => {
+                fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        statusDiv.innerHTML = '<div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px;">Thanks for your message! We will get back to you soon.</div>';
                         contactForm.reset();
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        btn.style.backgroundColor = '';
-                    }, 3000);
-                }, 1500);
+                        btn.innerText = 'Message Sent!';
+                        btn.style.backgroundColor = '#28a745';
+
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                            btn.style.backgroundColor = '';
+                            // Optional: clear success message after some time
+                            // setTimeout(() => { statusDiv.innerHTML = ''; }, 5000);
+                        }, 3000);
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                statusDiv.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                            } else {
+                                statusDiv.innerHTML = '<div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 20px;">Oops! There was a problem submitting your form</div>';
+                            }
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        });
+                    }
+                }).catch(error => {
+                    statusDiv.innerHTML = '<div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 20px;">Oops! There was a problem submitting your form</div>';
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
             }
         });
     }

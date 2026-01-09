@@ -8,6 +8,7 @@
     <meta name="description"
         content="Maberx Ltd specializes in steel fabrication, steel tanks, light gauge steel, and prefab homes. Established in 2017, serving industrial, commercial, and private clients.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shuffle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -43,11 +44,12 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-phone-alt"></i>
-                            <span>0113285744</span>
+                            <span><a href="tel:0113285744">0113285744</a></span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>maberlimited@gmail.com</span>
+                            <span><a href="mailto:maberlimited@gmail.com"
+                                    target="_blank">maberlimited@gmail.com</a></span>
                         </div>
                     </div>
                     <a href="contact.html" class="btn btn-primary">Get Started</a>
@@ -65,7 +67,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="images/hero_steel_fabrication_1767783048215.png" alt="Steel Fabrication Facility">
+            <video autoplay muted loop playsinline poster="images/hero_steel_fabrication_1767783048215.png">
+                <source src="images/welding%20video%202.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-overlay"></div>
         </div>
         <div class="container">
@@ -183,6 +188,28 @@
             </div>
 
             <div class="services-grid">
+                <!-- Steel Towers (New) -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/tank_towers.png" alt="Steel Towers">
+                        <div class="service-overlay">
+                            <a href="services.html#steel-towers" class="service-link">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h3 class="service-title">Steel Towers</h3>
+                        <p class="service-description">
+                            We are leaders in the design and fabrication of steel towers, providing robust and reliable
+                            solutions for various applications i.e for plastic tanks and solar support. Our expertise,
+                            advanced technology, and commitment to quality ensure that we deliver superior steel tower
+                            structures that meet the highest standards of performance and safety.
+                        </p>
+                    </div>
+                </div>
                 <!-- Steel Tanks -->
                 <div class="service-card">
                     <div class="service-image">
@@ -225,8 +252,14 @@
 
                 <!-- Prefab Homes -->
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-container.jpg" alt="Prefab Homes">
+                    <div class="service-image shuffle-container">
+                        <div class="slider-track">
+                            <img src="images/prefab_3.png" alt="Prefab Homes" class="shuffle-img">
+                            <img src="images/prefab_2.png" alt="Prefab Homes" class="shuffle-img">
+                            <img src="images/prefab_1.png" alt="Prefab Homes" class="shuffle-img">
+                            <!-- Duplicate first image for seamless scrolling -->
+                            <img src="images/prefab_3.png" alt="Prefab Homes" class="shuffle-img">
+                        </div>
                         <div class="service-overlay">
                             <a href="services.html#prefab-homes" class="service-link">Learn More <i
                                     class="fas fa-arrow-right"></i></a>
@@ -676,8 +709,9 @@
                     <h4 class="footer-title">Contact Info</h4>
                     <ul class="footer-contact">
                         <li><i class="fas fa-map-marker-alt"></i> Mihango, Utawala</li>
-                        <li><i class="fas fa-phone-alt"></i> 0113285744</li>
-                        <li><i class="fas fa-envelope"></i> maberlimited@gmail.com</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:0113285744">0113285744</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:maberlimited@gmail.com"
+                                target="_blank">maberlimited@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
