@@ -3,8 +3,7 @@
     position: relative;
     height: 250px;
     overflow: hidden;
-    /* Hide overflow for scrolling effect */
-    background-color: #000;
+    background-color: #1a1f2e;
 }
 
 .slider-track {
@@ -12,45 +11,39 @@
     width: 400%;
     /* 4 images (3 + 1 duplicate) = 400% width */
     height: 100%;
-    animation: scrollSlides 45s infinite;
+    animation: scrollSlides 45s infinite ease-in-out;
 }
 
 .shuffle-img {
     width: 25%;
     /* 100% / 4 images */
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    /* Changed from cover to contain to prevent oversizing */
+    object-position: center;
     flex-shrink: 0;
+    background-color: #1a1f2e;
+    /* Match container background */
 }
 
-/* Ensure the hover effect works on the container */
-.service-card:hover .shuffle-img {
-    transform: scale(1.05);
-    /* Subtle zoom on hover */
-    transition: transform 0.5s ease;
+/* Disable hover zoom on shuffle images to prevent animation conflicts */
+.service-card:hover .shuffle-container .shuffle-img {
+    transform: none;
 }
 
 @keyframes scrollSlides {
-    0% {
-        transform: translateX(0);
-    }
 
-    30% {
-        transform: translateX(0);
-    }
-
+    0%,
     33.33% {
-        transform: translateX(-25%);
+        transform: translateX(0);
     }
 
-    63.33% {
-        transform: translateX(-25%);
-    }
-
+    36.66%,
     66.66% {
-        transform: translateX(-50%);
+        transform: translateX(-25%);
     }
 
+    70%,
     96.66% {
         transform: translateX(-50%);
     }
