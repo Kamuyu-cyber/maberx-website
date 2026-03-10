@@ -241,4 +241,46 @@ document.addEventListener('DOMContentLoaded', function () {
             serviceSelect.value = serviceParam;
         }
     }
+
+    // =========================================
+    // Pricing Tabs
+    // =========================================
+    const pricingTabBtns = document.querySelectorAll('.pricing-tab-btn');
+    const pricingPanels = document.querySelectorAll('.pricing-panel');
+
+    if (pricingTabBtns.length > 0) {
+        pricingTabBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const targetPanel = this.getAttribute('data-panel');
+
+                // Update active tab
+                pricingTabBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show/hide panels
+                pricingPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === targetPanel) {
+                        panel.classList.add('active');
+                    }
+                });
+
+                // Re-trigger fade animations for newly visible cards
+                setTimeout(() => {
+                    document.querySelectorAll('.pricing-panel.active .pricing-card').forEach(card => {
+                        card.classList.remove('visible');
+                        void card.offsetWidth; // force reflow
+                        card.classList.add('visible');
+                    });
+                }, 50);
+            });
+        });
+
+        // Trigger initial fade for the active panel's cards
+        setTimeout(() => {
+            document.querySelectorAll('.pricing-panel.active .pricing-card').forEach(card => {
+                card.classList.add('visible');
+            });
+        }, 300);
+    }
 });
