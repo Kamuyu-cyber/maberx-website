@@ -50,6 +50,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =========================================
+    // Auto-update Years of Experience
+    // =========================================
+    const foundingYear = 2017;
+    const currentYear = new Date().getFullYear();
+    const yearsOfExperience = currentYear - foundingYear;
+
+    const yearsCounter = document.querySelector('.stat-number[data-target]');
+    if (yearsCounter && yearsCounter.closest('.stat-card') &&
+        yearsCounter.closest('.stat-card').querySelector('.stat-label') &&
+        yearsCounter.closest('.stat-card').querySelector('.stat-label').textContent.includes('Years')) {
+        yearsCounter.setAttribute('data-target', yearsOfExperience);
+    }
+
+    // =========================================
     // Animated Counters
     // =========================================
     const counters = document.querySelectorAll('.stat-number');
