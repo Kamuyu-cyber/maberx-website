@@ -1,13 +1,13 @@
 # Maberx Ltd Website
 
-A professional, multi-page website for Maberx Ltd, a leading steel fabrication company in Kenya. This website showcases the company's services, projects, and expertise in steel water tanks, light gauge steel, and prefab homes.
+A professional, multi-page website for Maberx Ltd, a leading steel fabrication company in Kenya. This website showcases the company's services, projects, and expertise in steel water tanks, light gauge steel, and Modular Go Units.
 
 ## 🚀 Features
 
 *   **Multi-Page Design:** distinct pages for Home, About, Services, Why Choose Us, and Contact.
 *   **Responsive Layout:** Fully responsive design that works seamlessly on mobile, tablet, and desktop.
 *   **Modern UI/UX:** Clean, professional aesthetic with a blue and white color scheme matching the company brand.
-*   **Service Showcase:** Detailed sections for key services: Steel Water Tanks, Light Gauge Steel, and Prefab Homes.
+*   **Service Showcase:** Detailed sections for key services: Steel Water Tanks, Light Gauge Steel, and Modular Go Units.
 *   **Client Trust:** Dedicated section displaying trusted client logos.
 *   **Contact Integration:** Functional contact forms and clear calls-to-action.
 
