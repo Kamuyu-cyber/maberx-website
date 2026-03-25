@@ -1337,7 +1337,34 @@ section {
 
 .service-features-list li i {
     color: var(--primary-color);
-    margin-top: 5px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* Service Detail Sub-Sections */
+.service-sub-sections {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.service-sub-col {
+    flex: 1;
+}
+
+.service-sub-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    border-bottom: 1px solid rgba(0, 86, 210, 0.3);
+    padding-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .service-sub-sections {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 /* =========================================
